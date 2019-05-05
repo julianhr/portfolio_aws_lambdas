@@ -1,0 +1,14 @@
+# directories
+__pycache__/
+.pytest_cache/
+*.egg-info/
+*htmlcov/
+*sam-app/
+
+# files
+.coverage
+.DS_Store
+.env
+*.pyc
+sam_commands.sh
+test.py
