@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'aws_emailers
+
+  Notify Slack when an issue is detected by Elastic Beanstalk
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+    Environment:
+      Variables:
+        URL: https://hooks.slack.com/services/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
+Resources:
+  BeanstalkErrorNotifySlackFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://lambda-eb-error-notify-slack/952f197d1ae7be83ff963316698d22c1
+      Handler: app.lambda_handler
+      Runtime: python3.7
+      Events:
+        BeanstalkError:
+          Type: Api
+          Properties:
+            Path: /eb_error_notify_slack
+            Method: GET
+Outputs:
+  BeanstalkErrorApi:
+    Description: API Gateway endpoint URL for Prod stage for Beanstalk Error Notify
+      Slack function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/eb_error_notify_slack/
+  BeanstalkErrorNotifySlackFunction:
+    Description: Notify Slack Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - BeanstalkErrorNotifySlackFunction
+      - Arn
+  BeanstalkErrorNotifySlackFunctionIamRole:
+    Description: Implicit IAM Role created for EB Error Notify Slack function
+    Value:
+      Fn::GetAtt:
+      - BeanstalkErrorNotifySlackFunctionRole
+      - Arn

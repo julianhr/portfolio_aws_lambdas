@@ -3,7 +3,7 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 *htmlcov/
-*sam-app/
+*sam-app-ref/
 
 # files
 .coverage
