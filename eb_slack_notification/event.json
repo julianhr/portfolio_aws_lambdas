@@ -1,0 +1,40 @@
+{
+  "Records": [
+      {
+          "EventSource": "aws:sns",
+          "EventVersion": "1.0",
+          "EventSubscriptionArn": "arn:aws:sns:us-west-2:044108724953:ElasticBeanstalkNotifications-Environment-flask-api-dev:35354690-e968-493e-9d19-35ef2e837bb0",
+          "Sns": {
+              "Type": "Notification",
+              "MessageId": "a1f98f8f-6589-5b6b-81f4-dacc227a30c7",
+              "TopicArn": "arn:aws:sns:us-west-2:044108724953:ElasticBeanstalkNotifications-Environment-flask-api-dev",
+              "Subject": "testing",
+              "Message": "{\n  \"hello\": \"world!!!\"\n}",
+              "Timestamp": "2019-05-01T07:07:31.252Z",
+              "SignatureVersion": "1",
+              "Signature": "gZgX25GOGbpzN8vZ5lsnlPHrS/5+Hepb/R04ffEoxSQQ84qgJM96Xkok6eGNDDu3NA08ygbn5HgVBWZt1QviWxDyD2BpKQNMHweiGslrzv6ezCDUtnvhMY6iV8fYUIo7QqRBDAaXk9EFYHjQZFdFSGiwseIxJMdrHfwUAoyHDSDBP6pYs5pXkERHif8/z7zK/+uGb1KIYn2kpQFSPBgwiEBz2FMfaS9wa+ovji8YSbWHm3PHXDr8pQ5kq22Qj0iVI7v7M1NnQcO+ibRxP0hKul8tJnc0KOe/WChc1hQ0Hdln7tDDSQGZXhmhhXEQhzWpRsEW0OveYii+3eOdVhYvoQ==",
+              "SigningCertUrl": "https://sns.us-west-2.amazonaws.com/SimpleNotificationService-6aad65c2f9911b05cd53efda11f913f9.pem",
+              "UnsubscribeUrl": "https://sns.us-west-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-west-2:044108724953:ElasticBeanstalkNotifications-Environment-flask-api-dev:35354690-e968-493e-9d19-35ef2e837bb0",
+              "MessageAttributes": {}
+          }
+      },
+      {
+        "EventSource": "aws:sns",
+        "EventVersion": "1.0",
+        "EventSubscriptionArn": "arn:aws:sns:us-west-2:044108724953:ElasticBeanstalkNotifications-Environment-flask-api-dev:35354690-e968-493e-9d19-35ef2e837bb0",
+        "Sns": {
+            "Type": "Notification",
+            "MessageId": "a1f98f8f-6589-5b6b-81f4-dacc227a30c7",
+            "TopicArn": "arn:aws:sns:us-west-2:044108724953:ElasticBeanstalkNotifications-Environment-flask-api-dev",
+            "Subject": "testing",
+            "Message": "{\n  \"hello\": \"world!!!\"\n}",
+            "Timestamp": "2019-05-01T07:07:31.252Z",
+            "SignatureVersion": "1",
+            "Signature": "gZgX25GOGbpzN8vZ5lsnlPHrS/5+Hepb/R04ffEoxSQQ84qgJM96Xkok6eGNDDu3NA08ygbn5HgVBWZt1QviWxDyD2BpKQNMHweiGslrzv6ezCDUtnvhMY6iV8fYUIo7QqRBDAaXk9EFYHjQZFdFSGiwseIxJMdrHfwUAoyHDSDBP6pYs5pXkERHif8/z7zK/+uGb1KIYn2kpQFSPBgwiEBz2FMfaS9wa+ovji8YSbWHm3PHXDr8pQ5kq22Qj0iVI7v7M1NnQcO+ibRxP0hKul8tJnc0KOe/WChc1hQ0Hdln7tDDSQGZXhmhhXEQhzWpRsEW0OveYii+3eOdVhYvoQ==",
+            "SigningCertUrl": "https://sns.us-west-2.amazonaws.com/SimpleNotificationService-6aad65c2f9911b05cd53efda11f913f9.pem",
+            "UnsubscribeUrl": "https://sns.us-west-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-west-2:044108724953:ElasticBeanstalkNotifications-Environment-flask-api-dev:35354690-e968-493e-9d19-35ef2e837bb0",
+            "MessageAttributes": {}
+        }
+    }
+  ]
+}

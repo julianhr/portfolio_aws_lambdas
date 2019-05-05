@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  eb_flask_api
+
+  Notify Slack when an issue is detected by Elastic Beanstalk
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+    Environment:
+      Variables:
+        URL: https://hooks.slack.com/services/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
+
+Resources:
+  NotifySlackFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: eb_flask_api/
+      Handler: app.lambda_handler
+      Runtime: python3.7
+      Events:
+        EBProblem:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /notify_slack
+            Method: GET
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  EBProblemApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/notify_slack/"
+  NotifySlackFunction:
+    Description: "Notify Slack Lambda Function ARN"
+    Value: !GetAtt NotifySlackFunction.Arn
+  NotifySlackFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt NotifySlackFunctionRole.Arn
