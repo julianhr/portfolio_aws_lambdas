@@ -2,7 +2,6 @@ import os
 import json
 import logging
 from botocore.vendored import requests
-from datetime import datetime
 from pprint import pprint
 
 

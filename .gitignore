@@ -10,5 +10,4 @@ __pycache__/
 .DS_Store
 .env
 *.pyc
-sam_commands.sh
 test.py
