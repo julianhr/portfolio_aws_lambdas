@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Deadletter notifies Slack when something goes wrong with AWS.
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+    Environment:
+      Variables:
+        URL: https://hooks.slack.com/services/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
+Resources:
+  DeadletterNotifySlackFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://lambda-deadletter-notify-slack/04593b2618026c6c8ee475c52c0adf17
+      Handler: app.lambda_handler
+      Runtime: python3.7
+      Events:
+        DeadletterNotifySlackApi:
+          Type: Api
+          Properties:
+            Path: /deadletter_notify_slack
+            Method: GET
+Outputs:
+  DeadletterNotifySlackApi:
+    Description: API Gateway endpoint URL for Prod stage for Catchall Error Email
+      function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/deadletter_notify_slack/
+  DeadletterNotifySlackFunction:
+    Description: Catcall Error Email Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - DeadletterNotifySlackFunction
+      - Arn
+  DeadletterNotifySlackFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value:
+      Fn::GetAtt:
+      - DeadletterNotifySlackFunctionRole
+      - Arn
